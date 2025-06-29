@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(220, 14.3%, 95.9%);
+  --muted-foreground: hsl(220, 8.9%, 46.1%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(220, 13%, 91%);
+  --input: hsl(220, 13%, 91%);
+  --primary: hsl(220, 100%, 54%);
+  --primary-foreground: hsl(210, 100%, 98%);
+  --secondary: hsl(220, 14.3%, 95.9%);
+  --secondary-foreground: hsl(220, 9%, 10%);
+  --accent: hsl(220, 14.3%, 95.9%);
+  --accent-foreground: hsl(220, 9%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(220, 100%, 54%);
+  --radius: 0.75rem;
+  
+  /* Custom variables for CodeArchive theme */
+  --slate-50: hsl(210, 40%, 98%);
+  --slate-100: hsl(210, 40%, 96%);
+  --slate-200: hsl(214, 32%, 91%);
+  --slate-300: hsl(213, 27%, 84%);
+  --slate-400: hsl(215, 20%, 65%);
+  --slate-500: hsl(215, 16%, 47%);
+  --slate-600: hsl(215, 19%, 35%);
+  --slate-700: hsl(215, 25%, 27%);
+  --slate-800: hsl(217, 33%, 17%);
+  --slate-900: hsl(222, 84%, 5%);
+  
+  --blue-50: hsl(214, 100%, 97%);
+  --blue-100: hsl(214, 95%, 93%);
+  --blue-200: hsl(213, 97%, 87%);
+  --blue-300: hsl(212, 96%, 78%);
+  --blue-400: hsl(213, 94%, 68%);
+  --blue-500: hsl(217, 91%, 60%);
+  --blue-600: hsl(221, 83%, 53%);
+  --blue-700: hsl(224, 76%, 48%);
+  --blue-800: hsl(226, 71%, 40%);
+  --blue-900: hsl(224, 64%, 33%);
+  
+  --emerald-400: hsl(166, 76%, 67%);
+  --emerald-500: hsl(167, 85%, 89%);
+  --emerald-600: hsl(158, 64%, 52%);
+  --emerald-700: hsl(158, 75%, 42%);
+  
+  --amber-300: hsl(48, 100%, 67%);
+  --amber-500: hsl(45, 93%, 58%);
+  
+  --yellow-500: hsl(45, 93%, 58%);
+  --orange-500: hsl(25, 95%, 53%);
+  --green-500: hsl(142, 76%, 36%);
+  --red-500: hsl(0, 84%, 60%);
+}
+
+.dark {
+  --background: hsl(224, 71%, 4%);
+  --foreground: hsl(210, 20%, 98%);
+  --muted: hsl(215, 27.9%, 16.9%);
+  --muted-foreground: hsl(217.9, 10.6%, 64.9%);
+  --popover: hsl(224, 71%, 4%);
+  --popover-foreground: hsl(210, 20%, 98%);
+  --card: hsl(224, 71%, 4%);
+  --card-foreground: hsl(210, 20%, 98%);
+  --border: hsl(215, 27.9%, 16.9%);
+  --input: hsl(215, 27.9%, 16.9%);
+  --primary: hsl(220, 100%, 54%);
+  --primary-foreground: hsl(210, 100%, 98%);
+  --secondary: hsl(215, 27.9%, 16.9%);
+  --secondary-foreground: hsl(210, 20%, 98%);
+  --accent: hsl(215, 27.9%, 16.9%);
+  --accent-foreground: hsl(210, 20%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 20%, 98%);
+  --ring: hsl(220, 100%, 54%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  code, pre {
+    font-family: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, 'Courier New', monospace;
+  }
+}
+
+@layer components {
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 1s infinite;
+  }
+}
+
+/* Custom scrollbar styles */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted)) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground));
+}
+
+/* Syntax highlighting improvements */
+.syntax-highlight {
+  .keyword {
+    color: hsl(var(--primary));
+  }
+  
+  .string {
+    color: hsl(var(--emerald-400));
+  }
+  
+  .comment {
+    color: hsl(var(--muted-foreground));
+    font-style: italic;
+  }
+  
+  .number {
+    color: hsl(var(--amber-500));
+  }
+  
+  .function {
+    color: hsl(var(--blue-400));
+  }
+}
